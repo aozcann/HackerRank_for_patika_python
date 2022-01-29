@@ -1,0 +1,19 @@
+# https://www.hackerrank.com/challenges/standardize-mobile-number-using-decorators/problem
+def wrapper(f):
+    def fun(l):
+        #print (l);
+        for k in range(len(l)):
+            l[k] = "+91 " + l[k][-10:-5] + " " + l[k][-5:]
+        f(l)
+    
+    return fun
+
+@wrapper
+def sort_phone(l):
+    print(*sorted(l), sep='\n')
+
+if __name__ == '__main__':
+    l = [input() for _ in range(int(input()))]
+    sort_phone(l) 
+
+
